@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RegistroUnivalle_A1</string>
+    <string name="et_Nombre">Nombre</string>
+    <string name="et_Apellido">Apellido</string>
+    <string name="etEmail">E-mail</string>
+    <string name="etCelular">Celular</string>
+    <string name="etNota">Nota</string>
+    <string name="etDireccion">Direccion</string>
+    <string name="text_switch">Estudiante?</string>
+    <string name="btn_registrar">Registrar</string>
 </resources>

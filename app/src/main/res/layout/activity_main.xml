@@ -7,29 +7,83 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
         android:ems="10"
+        android:hint="@string/et_Nombre"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:ems="10"
+        android:hint="@string/etEmail"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="172dp" />
+        app:layout_constraintEnd_toEndOf="@+id/etApellido"
+        app:layout_constraintStart_toStartOf="@+id/etApellido"
+        app:layout_constraintTop_toBottomOf="@+id/etApellido" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="389dp" />
+        android:layout_marginTop="52dp"
+        android:text="@string/btn_registrar"
+        app:layout_constraintEnd_toEndOf="@+id/etNota"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/etNota"
+        app:layout_constraintTop_toBottomOf="@+id/etNota" />
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="@string/etCelular"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@+id/etDireccion"
+        app:layout_constraintStart_toStartOf="@+id/etDireccion"
+        app:layout_constraintTop_toBottomOf="@+id/etDireccion" />
+
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="@string/et_Apellido"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etNombre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etNombre"
+        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
+    <Switch
+        android:id="@+id/swEstudiante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="@string/text_switch"
+        app:layout_constraintEnd_toEndOf="@+id/etTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefono" />
+
+    <EditText
+        android:id="@+id/etNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="@string/etNota"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/etTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefono" />
 </androidx.constraintlayout.widget.ConstraintLayout>
