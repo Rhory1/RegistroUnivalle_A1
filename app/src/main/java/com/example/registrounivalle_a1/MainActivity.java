@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -27,6 +28,23 @@ public class MainActivity extends AppCompatActivity {
         inicializarVistas();
 
         btnRegistrar.setOnClickListener((view)->{verificarLlenado();});
+
+        // el metodo para un switch
+        // camios igual a marcado o no marcado
+        swEstudiante.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                mostrarMensaje(b);
+            }
+        });
+    }
+
+    private void mostrarMensaje(Boolean marcado) {
+        String mensaje="no estoy marcado";
+        if(marcado){
+            mensaje="Sí estoy marcado";
+        }
+        Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
     }
 
     private void verificarLlenado() {
@@ -36,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(apellido.matches("")||apellido==null||nombre.matches("")||nombre==null){
             Toast.makeText(this,"Debe ingresar datos!!",Toast.LENGTH_LONG).show();
+            return;
         }
         else {
 //            if(etEmail.getText().toString().trim()==null){
