@@ -3,6 +3,7 @@ package com.example.registrounivalle_a1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -26,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         inicializarVistas();
-
+        // la visibilidad del evento en pantalla
+        // si se usa View.INVISIBLE aun esta el espacio que ocupa
+        //etNota.setVisibility(View.INVISIBLE);
+        // Si se usa View.GONE el objeto ya no se ve ni ocupa espacio
+        etNota.setVisibility(View.GONE);
         btnRegistrar.setOnClickListener((view)->{verificarLlenado();});
 
         // el metodo para un switch
@@ -34,9 +39,19 @@ public class MainActivity extends AppCompatActivity {
         swEstudiante.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                habilitatCampoEstudiante(b);
                 mostrarMensaje(b);
             }
         });
+    }
+
+    private void habilitatCampoEstudiante(boolean marcado) {
+        if(marcado){
+            etNota.setVisibility(View.VISIBLE);
+        }
+        else{
+            etNota.setVisibility(View.GONE);
+        }
     }
 
     private void mostrarMensaje(Boolean marcado) {
