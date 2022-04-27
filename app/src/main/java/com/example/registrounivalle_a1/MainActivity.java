@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Switch swEstudiante;
 
     private String nombre,apellido,mail;
-    private int celular;
+    private String celular;
     private int nota;
 
 
@@ -33,22 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
         nombre=etNombre.getText().toString().trim();
         apellido=etApellido.getText().toString().trim();
-        mail=etEmail.getText().toString().trim();
 
         if(apellido.matches("")||apellido==null||nombre.matches("")||nombre==null){
             Toast.makeText(this,"Debe ingresar datos!!",Toast.LENGTH_LONG).show();
         }
-        else{
-
-                nombre=etNombre.getText().toString();
-                apellido=etApellido.getText().toString();
-
-
-            //mail=etEmail.getText().toString();
-            //celular=Integer.parseInt(etTelefono.getText().toString());
-            //nota=Integer.parseInt(etNota.getText().toString());
+        else {
+//            if(etEmail.getText().toString().trim()==null){
+//                mail="";
+//            }
+//            else{
+//                mail=etEmail.getText().toString().trim();
+//                celular=etTelefono.getText().toString().trim();
+//                nota=Integer.parseInt(etNota.getText().toString().trim());
+//            }
             mostrarValores();
         }
+
 
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         nombre=etNombre.getText().toString();
         apellido=etApellido.getText().toString();
         mail=etEmail.getText().toString();
-        celular=Integer.parseInt(etTelefono.getText().toString());
+        celular=etTelefono.getText().toString();
         nota=Integer.parseInt(etNota.getText().toString());
 
     }
