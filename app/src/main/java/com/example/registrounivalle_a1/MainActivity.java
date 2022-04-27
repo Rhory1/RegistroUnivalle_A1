@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         swEstudiante.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                habilitatCampoEstudiante(b);
+                habilitarCampoEstudiante(b);
                 mostrarMensaje(b);
             }
         });
     }
 
-    private void habilitatCampoEstudiante(boolean marcado) {
+    private void habilitarCampoEstudiante(boolean marcado) {
         if(marcado){
             etNota.setVisibility(View.VISIBLE);
         }
