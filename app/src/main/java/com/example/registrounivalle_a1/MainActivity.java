@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         nombre=etNombre.getText().toString().trim();
         apellido=etApellido.getText().toString().trim();
+        mail=etEmail.getText().toString().trim();
+
         if(apellido.matches("")||apellido==null||nombre.matches("")||nombre==null){
             Toast.makeText(this,"Debe ingresar datos!!",Toast.LENGTH_LONG).show();
         }
