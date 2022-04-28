@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         //etNota.setVisibility(View.INVISIBLE);
         // Si se usa View.GONE el objeto ya no se ve ni ocupa espacio
         etNota.setVisibility(View.GONE);
-        btnRegistrar.setOnClickListener((view)->{verificarLlenado();});
+        btnRegistrar.setOnClickListener((view)->{recibirInformacion();verificarLlenado();});
 
         // el metodo para un switch
-        // camios igual a marcado o no marcado
+        // cambios igual a marcado o no marcado
         swEstudiante.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -64,18 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void verificarLlenado() {
 
-        nombre=etNombre.getText().toString().trim();
-        apellido=etApellido.getText().toString().trim();
-
-        if(apellido.matches("")||apellido==null||nombre.matches("")||nombre==null){
+        if(apellido.equals("")||nombre.equals("")){
             Toast.makeText(this,"Debe ingresar datos!!",Toast.LENGTH_LONG).show();
-            return;
         }
         else {
 //            if(etEmail.getText().toString().trim()==null){
 //                mail="";
 //            }
 //            else{
+            // OJO NO SE HA INICIALIZADO etMail POR ESO FALLA!!
 //                mail=etEmail.getText().toString().trim();
 //                celular=etTelefono.getText().toString().trim();
 //                nota=Integer.parseInt(etNota.getText().toString().trim());
@@ -96,11 +93,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void recibirInformacion() {
-        nombre=etNombre.getText().toString();
-        apellido=etApellido.getText().toString();
-        mail=etEmail.getText().toString();
+        nombre=etNombre.getText().toString().trim();
+        apellido=etApellido.getText().toString().trim();
+        mail=etEmail.getText().toString().trim();
         celular=etTelefono.getText().toString();
-        nota=Integer.parseInt(etNota.getText().toString());
+        if(etNota.getText().toString().equals("")){
+            nota=0;
+        }
+        else{
+            nota=Integer.parseInt(etNota.getText().toString());
+        }
 
     }
 
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
     private void inicializarVistas() {
         etNombre=findViewById(R.id.etNombre);
         etApellido=findViewById(R.id.etApellido);
+        // MUCHO CUIDADO, NO SE HABIA INICIALIZADO etMail
+        etEmail=findViewById(R.id.etMail);
         etTelefono=findViewById(R.id.etTelefono);
         etNota=findViewById(R.id.etNota);
         btnRegistrar=findViewById(R.id.btnRegistrar);
