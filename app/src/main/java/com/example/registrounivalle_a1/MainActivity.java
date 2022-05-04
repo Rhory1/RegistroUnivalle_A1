@@ -62,9 +62,8 @@ public class MainActivity extends AppCompatActivity {
         se puede entender que el archivo se llamase EXTRAS, ese
         ese archivo temporal contiene registros en formato Clave:valor (Key):(Value)
         cada registro solo puede contener un dato
-        el dato solo puede ser DATO PRIMITIVO
+        el dato solo puede ser DATO PRIMITIVO (int,String,float)
         cada registro se llama EXTRA
-
          */
         intencion.putExtra("Nombre_persona:",nombre);
         intencion.putExtra("Apellido_persona:",apellido);
