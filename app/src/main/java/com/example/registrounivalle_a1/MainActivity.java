@@ -2,6 +2,7 @@ package com.example.registrounivalle_a1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         //etNota.setVisibility(View.INVISIBLE);
         // Si se usa View.GONE el objeto ya no se ve ni ocupa espacio
         etNota.setVisibility(View.GONE);
-        btnRegistrar.setOnClickListener((view)->{recibirInformacion();verificarLlenado();});
+        btnRegistrar.setOnClickListener((view)->{recibirInformacion();
+            //verificarLlenado();
+            pasarSegundaPantalla();});
 
         // el metodo para un switch
         // cambios igual a marcado o no marcado
@@ -43,6 +46,29 @@ public class MainActivity extends AppCompatActivity {
                 mostrarMensaje(b);
             }
         });
+    }
+
+    private void pasarSegundaPantalla() {
+        // se va a utilizar el componente llamado INTENT
+        // requiere de
+        // parametro 1: de donde o de que pantalla va a venir
+        // parametro 2: a que pantalla van a ir
+        // el metodo que lanzara la pantalla se llama .startActivity()
+        // es necesario para eso que INTENT haya resuelto el deseo del paso de pantalla
+        Intent intencion=new Intent(this,homeActivity.class);
+        // configurar paso de datos entre pantallas usando INTENT
+        /*
+        el intent tiene un archivo digamos temporal
+        se puede entender que el archivo se llamase EXTRAS, ese
+        ese archivo temporal contiene registros en formato Clave:valor (Key):(Value)
+        cada registro solo puede contener un dato
+        el dato solo puede ser DATO PRIMITIVO
+        cada registro se llama EXTRA
+
+         */
+        intencion.putExtra("Nombre_persona:",nombre);
+        intencion.putExtra("Apellido_persona:",apellido);
+        startActivity(intencion);
     }
 
     private void habilitarCampoEstudiante(boolean marcado) {
