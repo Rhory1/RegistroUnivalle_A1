@@ -7,11 +7,12 @@ import android.widget.TextView;
 
 public class homeActivity extends AppCompatActivity {
     // atributos que representen a sus view
-    private TextView textView;
+    private TextView txtResultado;
 
 
     // variables generales de la clase
-    String nombre, apellido;
+    private String nombre, apellido;
+    private Estudiante estudiante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +20,20 @@ public class homeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         inicializarVistas();
         obtenerDatosPrimeraPantalla();
-        mostrarDatos();
+        //mostrarDatos();
+        mostrarDatosDesdeObjeto();
+    }
+
+    private void mostrarDatosDesdeObjeto() {
+        // getSerializabla devuelve objeto generico, no particular
+        // en este caso un casteo ayuda a solamente extraer de ese objeto general lo que
+        // a ti te importa
+        estudiante=(Estudiante) this.getIntent().getExtras().getSerializable("estudiante_objeto");
+        txtResultado.setText(estudiante.getNombre());
     }
 
     private void mostrarDatos() {
-        textView.setText(nombre+", "+apellido);
+        txtResultado.setText(nombre+", "+apellido);
     }
 
     private void obtenerDatosPrimeraPantalla() {
@@ -32,6 +42,6 @@ public class homeActivity extends AppCompatActivity {
     }
 
     private void inicializarVistas() {
-        textView=findViewById(R.id.textView);
+        txtResultado=findViewById(R.id.txtResultado);
     }
 }

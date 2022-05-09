@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private String nombre,apellido,mail;
     private String celular;
     private int nota;
+    private Estudiante estudiante;
 
 
     @Override
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
         etNota.setVisibility(View.GONE);
         btnRegistrar.setOnClickListener((view)->{recibirInformacion();
             //verificarLlenado();
-            pasarSegundaPantalla();});
+            //pasarSegundaPantalla();
+            obtenerInformacionEnObjeto();
+            pasarPantallaEnviandoObjetos();});
 
         // el metodo para un switch
         // cambios igual a marcado o no marcado
@@ -46,6 +49,20 @@ public class MainActivity extends AppCompatActivity {
                 mostrarMensaje(b);
             }
         });
+    }
+
+    private void pasarPantallaEnviandoObjetos() {
+        Intent i = new Intent(this,homeActivity.class);
+
+        // crear archivo temporar de tipo Bundle
+        Bundle archivo=new Bundle();
+        archivo.putSerializable("estudiante_objeto",estudiante);
+        // esto es lo mismo que hacer el .putExtra en el intent
+        archivo.putString("nombre",nombre);
+        // pasando de golpe todo un archivo con registros
+        i.putExtras(archivo);
+        startActivity(i);
+
     }
 
     private void pasarSegundaPantalla() {
@@ -131,7 +148,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private void obtenerInformacionEnObjeto(){
+        estudiante=new Estudiante(etNombre.getText().toString(),
+                etApellido.getText().toString(),
+                etEmail.getText().toString(),
+                etTelefono.getText().toString(),
+                etNota.getText().toString());
+    }
     private void inicializarVistas() {
         etNombre=findViewById(R.id.etNombre);
         etApellido=findViewById(R.id.etApellido);
